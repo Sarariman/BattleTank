@@ -33,7 +33,6 @@ private:
 
 	UPROPERTY(EditAnywhere)
 		float CrosshairXLocation = 0.5f;	/// Remember widget anchor
-
 	UPROPERTY(EditAnywhere)
 		float CrosshairYLocation = 0.3f;	/// Remember widget anchor
 	UPROPERTY(EditAnywhere)

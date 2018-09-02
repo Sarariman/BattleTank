@@ -1,6 +1,8 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
+
 #include "TankPlayerController.h"
+
 
 // Called when the game starts or when spawned
 void ATankPlayerController::BeginPlay()
@@ -44,8 +46,7 @@ void ATankPlayerController::AimTowardsCrosshair()
 	FVector OutHitLocation;	/// OUT Parameter
 	if (GetSightRayHitLocation(OutHitLocation))	/// Has "side-effect", is going to linetrace
 	{
-		UE_LOG(LogTemp, Warning, TEXT("Hit Location: %s"), *OutHitLocation.ToString());
-		/// Tell ControlledTank to aim at this point
+		GetControlledTank()->AimAt(OutHitLocation);
 	}
 
 }
