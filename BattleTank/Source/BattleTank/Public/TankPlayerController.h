@@ -23,4 +23,11 @@ public:
 
 private:
 	ATank* GetControlledTank() const;
+
+	//Start the tank moving the barrel so that a shot would hit
+	//Where the crosshair intersects the world
+	void AimTowardsCrosshair();
+
+	//Return an Out parameter, true if hit landscape
+	bool GetSightRayHitLocation(FVector& OutHitLocation) const; ///Mutate or change an FVector, Passing a reference to FVector
 };
