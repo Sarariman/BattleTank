@@ -6,7 +6,7 @@ void ATankAIController::BeginPlay()
 {
 	Super::BeginPlay();
 
-	///Find Tank possessed by player
+	/// Find Tank possessed by player
 	auto PlayerTank = GetPlayerTank();
 	if (!PlayerTank)
 	{
@@ -16,7 +16,7 @@ void ATankAIController::BeginPlay()
 	{
 		UE_LOG(LogTemp, Warning, TEXT("AIController found player: %s"), *(PlayerTank->GetName()));
 	}
-	///UE_LOG(LogTemp, Warning, TEXT("AIController begin play!"))
+	/// UE_LOG(LogTemp, Warning, TEXT("AIController begin play!"))
 }
 
 ATank* ATankAIController::GetControlledTank() const
