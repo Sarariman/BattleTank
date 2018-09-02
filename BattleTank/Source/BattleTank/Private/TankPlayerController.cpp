@@ -2,6 +2,7 @@
 
 #include "TankPlayerController.h"
 
+// Called when the game starts or when spawned
 void ATankPlayerController::BeginPlay()
 {
 	Super::BeginPlay();
@@ -19,6 +20,16 @@ void ATankPlayerController::BeginPlay()
 
 	///UE_LOG(LogTemp, Warning, TEXT("PlayerController begin play!"))
 }
+
+
+// Called every frame
+void ATankPlayerController::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+	UE_LOG(LogTemp, Warning, TEXT("TickTick"));
+	//AimTowardsCrosshair()
+}
+
 
 ATank* ATankPlayerController::GetControlledTank() const
 {
