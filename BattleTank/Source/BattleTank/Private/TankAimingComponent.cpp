@@ -37,7 +37,7 @@ void UTankAimingComponent::AimAt(FVector OutHitLocation, float LaunchSpeed)
 		ESuggestProjVelocityTraceOption::DoNotTrace	///MUST exist even if default value
 	);
 
-	if (bHaveAimSolution && (OutHitLocation != FVector(0)))
+	if (bHaveAimSolution)
 	{
 		auto AimDirection = OutLaunchVelocity.GetSafeNormal(); /// GetSafeNormal to Converts to unit vector
 		MoveBarrelTowards(AimDirection);
@@ -64,5 +64,5 @@ void UTankAimingComponent::MoveBarrelTowards(FVector AimDirection)
 	auto DeltaRotator = AimAsRotator - BarrelRotator;
 	
 
-	Barrel->Elevate(1); ///TODO remove magic number
+	Barrel->Elevate(DeltaRotator.Pitch);
 }

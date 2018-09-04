@@ -85,7 +85,7 @@ bool ATankPlayerController::GetLookVectorHitLocation(FVector LookDirection, FVec
 		return true;
 	}
 	OutHitLocation = FVector(0);
-	return false;	/// Linetrace didn't succeed
+	return true;	/// Linetrace didn't succeed
 }
 
 bool ATankPlayerController::GetLookDirection(FVector2D ScreenLocation, FVector& LookDirection) const
