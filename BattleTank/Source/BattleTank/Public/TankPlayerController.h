@@ -31,11 +31,11 @@ private:
 	// Return an Out parameter, true if hit landscape
 	bool GetSightRayHitLocation(FVector& OutHitLocation) const;	///Mutate or change an FVector, Passing a reference to FVector
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditDefaultsOnly)
 		float CrosshairXLocation = 0.5f;	/// Remember widget anchor
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditDefaultsOnly)
 		float CrosshairYLocation = 0.3f;	/// Remember widget anchor
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditDefaultsOnly)
 		float LineTraceRange = 1000000;		/// 10Km
 
 	bool GetLookDirection(FVector2D ScreenLocation, FVector& LookDirection) const;
