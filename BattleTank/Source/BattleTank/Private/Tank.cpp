@@ -2,6 +2,7 @@
 
 #include "Tank.h"
 #include "TankAimingComponent.h"
+#include "TankMovementComponent.h"
 #include "TankBarrel.h"
 #include "Projectile.h"
 
@@ -16,6 +17,8 @@ ATank::ATank()
 
 	/// No need to protect pointers as added to construction /// Create inherited component
 	TankAimingComponent = CreateDefaultSubobject<UTankAimingComponent>(FName("AimingComponent"));
+
+	TankMovementComponent = CreateDefaultSubobject<UTankMovementComponent>(FName("MovementComponent"));
 }
 
 void ATank::SetBarrelReference(UTankBarrel* BarrelToSet)
@@ -30,23 +33,12 @@ void ATank::SetTurretReference(UTankTurret* TurretToSet)
 	TankAimingComponent->SetTurretReference(TurretToSet);
 }
 
-//void ATank::SetTrackReference(UTankTrack* TrackToSet)
-//{
-//	SetTrackReference(TrackToSet);
-//}
-
 // Called when the game starts or when spawned
 void ATank::BeginPlay()
 {
 	Super::BeginPlay();
 	
 }
-
-///NO TICK
-///void ATank::Tick(float DeltaTime)
-///{
-///	Super::Tick(DeltaTime);
-///}
 
 // Called to bind functionality to input
 void ATank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
