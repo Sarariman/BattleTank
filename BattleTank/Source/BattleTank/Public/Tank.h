@@ -44,6 +44,7 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+	UPROPERTY(BlueprintReadOnly)	///Component can now be called in Blueprint
 	UTankAimingComponent* TankAimingComponent = nullptr;	///Somewhere to store the pointer
 
 	UPROPERTY(BlueprintReadOnly)	///Component can now be called in Blueprint
