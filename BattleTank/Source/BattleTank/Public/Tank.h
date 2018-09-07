@@ -9,10 +9,7 @@
 
 // Forward declaration
 class UTankBarrel;
-class UTankTurret;
-class UTankTrack;
 class UTankAimingComponent;
-class UTankMovementComponent;
 class AProjectile;
 
 UCLASS()
@@ -38,9 +35,6 @@ protected:
 
 	UPROPERTY(BlueprintReadOnly)	///Component can now be called in Blueprint
 	UTankAimingComponent* TankAimingComponent = nullptr;	///Somewhere to store the pointer
-
-	UPROPERTY(BlueprintReadOnly)	///Component can now be called in Blueprint
-	UTankMovementComponent* TankMovementComponent = nullptr;///Somewhere to store the pointer
 
 private:
 	UPROPERTY(EditDefaultsOnly, Category = "Setup")

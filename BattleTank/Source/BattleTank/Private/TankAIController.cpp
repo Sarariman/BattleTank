@@ -2,7 +2,7 @@
 
 #include "TankAIController.h"
 #include "Tank.h"
-
+//Depends on MovementComponent via pathfinding system
 
 void ATankAIController::BeginPlay()
 {
