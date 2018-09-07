@@ -17,7 +17,7 @@ public:
 	
 private:
 
-	UPROPERTY(EditDefaultsOnly, Category = Setup)
+	UPROPERTY(EditDefaultsOnly, Category = "Setup")
 		float MaxDegreesPerSecond = 25;
 
 	///UPROPERTY(EditAnywhere, Category = Setup) ///Used if clamp needed

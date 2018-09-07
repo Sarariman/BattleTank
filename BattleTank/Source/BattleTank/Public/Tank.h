@@ -24,21 +24,11 @@ public:
 	// Sets default values for this pawn's properties
 	ATank();
 
-	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
-
-	UFUNCTION(BlueprintCallable, Category = Setup)
-		void SetBarrelReference(UTankBarrel* BarrelToSet);
-
-	UFUNCTION(BlueprintCallable, Category = Setup)
-		void SetTurretReference(UTankTurret* TurretToSet);
-
-	//UFUNCTION(BlueprintCallable, Category = Setup)
-	//	void SetTrackReference(UTankTrack* TrackToSet);
+	void AimAt(FVector OutHitLocation);
 
 	UFUNCTION(BlueprintCallable) ///Category can be added
 		void Fire();
 
-	void AimAt(FVector OutHitLocation);
 
 protected:
 	// Called when the game starts or when spawned
@@ -51,13 +41,13 @@ protected:
 	UTankMovementComponent* TankMovementComponent = nullptr;///Somewhere to store the pointer
 
 private:
-	UPROPERTY(EditDefaultsOnly, Category = Setup)
+	UPROPERTY(EditDefaultsOnly, Category = "Setup")
 		TSubclassOf<AProjectile> ProjectileBlueprint;	/// Can choose class from AProjectile
 
-	UPROPERTY(EditDefaultsOnly, Category = Firing)
+	UPROPERTY(EditDefaultsOnly, Category = "Firing")
 		float LaunchSpeed = 4000;	/// TODO find sensible default value
 
-	UPROPERTY(EditDefaultsOnly, Category = Firing)
+	UPROPERTY(EditDefaultsOnly, Category = "Firing")
 		float ReloadTimeInSeconds = 3;	/// Limit Firing Rate
 
 	//Local Barrel reference for spawning projectile
