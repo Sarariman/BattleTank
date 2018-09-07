@@ -37,7 +37,7 @@ public:
 
 protected:
 	UPROPERTY(BlueprintReadOnly, Category = "State")	///Component can now be called in Blueprint
-		EFiringState FiringState = EFiringState::Reloading;
+		EFiringState FiringState = EFiringState::Aiming;
 
 private:
 	// Sets default values for this component's properties
