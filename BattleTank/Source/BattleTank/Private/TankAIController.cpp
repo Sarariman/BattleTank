@@ -19,7 +19,7 @@ void ATankAIController::Tick(float DeltaTime)
 	auto PlayerTank = GetPlayerTank();
 	auto ControlledTank = GetControlledTank();
 
-	if (PlayerTank)
+	if (ensure(PlayerTank))
 	{
 		// Move towards the player
 
