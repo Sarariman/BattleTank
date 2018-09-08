@@ -38,7 +38,6 @@ public:
 	void AimAt(FVector OutHitLocation);
 
 
-
 protected:
 	UPROPERTY(BlueprintReadOnly, Category = "State")	///Component can now be called in Blueprint
 		EFiringState FiringState = EFiringState::Reloading;
@@ -51,6 +50,8 @@ private:
 	virtual void TickComponent(float DeltaTime, enum ELevelTick TickType, FActorComponentTickFunction *ThisTickFunction) override;
 
 	void MoveBarrelTowards(FVector AimDirection);
+
+	bool IsBarrelMoving();
 
 	UTankBarrel* Barrel = nullptr;
 	UTankTurret* Turret = nullptr;
@@ -65,4 +66,6 @@ private:
 		float ReloadTimeInSeconds = 3;	/// Limit Firing Rate
 
 	double LastFireTime = 0;			/// Limit Firing Rate
+
+	FVector AimDirection;
 };
