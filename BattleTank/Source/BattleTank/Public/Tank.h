@@ -9,7 +9,6 @@
 
 // Forward declaration
 class UTankBarrel;
-class UTankAimingComponent;
 class AProjectile;
 
 UCLASS()
@@ -24,17 +23,8 @@ public:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-	void AimAt(FVector OutHitLocation);
-
 	UFUNCTION(BlueprintCallable) ///Category can be added
 		void Fire();
-
-
-protected:
-
-
-	UPROPERTY(BlueprintReadOnly)	///Component can now be called in Blueprint
-	UTankAimingComponent* TankAimingComponent = nullptr;	///Somewhere to store the pointer
 
 private:
 	UPROPERTY(EditDefaultsOnly, Category = "Setup")
