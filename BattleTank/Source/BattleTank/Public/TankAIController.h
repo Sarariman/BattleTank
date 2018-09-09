@@ -18,7 +18,7 @@ public:
 
 	virtual void Tick(float DeltaTime) override;
 
-private:
-
-	float AcceptanceRadius = 3000; ///How close AITank can get to the player
+protected:
+	UPROPERTY(EditDefaultsOnly, Category = "Setup") /// Consider EditAnywhere
+	float AcceptanceRadius = 8000; ///How close AITank can get to the player
 };

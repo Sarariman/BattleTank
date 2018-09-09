@@ -37,6 +37,7 @@ public:
 
 	void AimAt(FVector OutHitLocation);
 
+	EFiringState GetFiringState() const;
 
 protected:
 	UPROPERTY(BlueprintReadOnly, Category = "State")	///Component can now be called in Blueprint
