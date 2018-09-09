@@ -1,4 +1,9 @@
-Content/StarterContent/*
+Content/BattleGround_sharedassets/Lighting*
+Content/BattleGround_sharedassets/Texture*
+
+Content/Mortar/T_MacroVariation.uasset
+Content/Mortar/T_Metal_Rust_D.uasset
+Content/Mortar/T_Metal_Rust_N.uasset
 
 # Visual Studio 2015 user specific files
 .vs/
