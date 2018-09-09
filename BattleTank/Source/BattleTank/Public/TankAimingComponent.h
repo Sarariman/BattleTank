@@ -37,7 +37,7 @@ public:
 		void Fire();
 
 	UFUNCTION(BlueprintCallable) ///Category can be added
-		int GetRoundsLeft() const;
+		int32 GetRoundsLeft() const;
 
 	void AimAt(FVector OutHitLocation);
 
@@ -63,11 +63,16 @@ private:
 	UTankBarrel* Barrel = nullptr;
 	UTankTurret* Turret = nullptr;
 
-	UPROPERTY(EditDefaultsOnly, Category = "Firing") ///COPY from Tank.h
-		float LaunchSpeed = 4000;	/// TODO find sensible default value
+
 
 	UPROPERTY(EditDefaultsOnly, Category = "Setup")
 		TSubclassOf<AProjectile> ProjectileBlueprint;	/// Can choose class from AProjectile
+
+	UPROPERTY(EditDefaultsOnly, Category = "Firing") ///COPY from Tank.h
+		float LaunchSpeed = 8000;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Firing")
+		int32 RoundsLeft = 3;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Firing")
 		float ReloadTimeInSeconds = 3;	/// Limit Firing Rate
@@ -76,5 +81,4 @@ private:
 
 	FVector AimDirection;
 
-	int RoundsLeft = 3;
 };

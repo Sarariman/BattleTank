@@ -46,7 +46,7 @@ void UTankAimingComponent::TickComponent(float DeltaTime, enum ELevelTick TickTy
 	}
 }
 
-int UTankAimingComponent::GetRoundsLeft() const
+int32 UTankAimingComponent::GetRoundsLeft() const
 {
 	return RoundsLeft;
 }
@@ -113,19 +113,6 @@ void UTankAimingComponent::MoveBarrelTowards(FVector AimDirection)
 	{
 		Turret->Rotate(-DeltaRotator.Yaw);
 	}
-
-	/*
-	// Always yaw the shortest way
-	Barrel->Elevate(DeltaRotator.Pitch);
-	if (DeltaRotator.Yaw < 180)
-	{
-	Turret->Rotate(DeltaRotator.Yaw);
-	}
-	else
-	{
-	Turret->Rotate(-DeltaRotator.Yaw);
-	}
-	*/
 }
 
 
