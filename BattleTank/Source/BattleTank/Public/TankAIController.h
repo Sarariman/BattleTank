@@ -21,4 +21,11 @@ public:
 protected:
 	UPROPERTY(EditDefaultsOnly, Category = "Setup") /// Consider EditAnywhere
 	float AcceptanceRadius = 8000; ///How close AITank can get to the player
+
+private:
+	virtual void SetPawn(APawn* InPawn) override;
+
+	UFUNCTION()
+		void OnPossessedTankDeath();
+
 };

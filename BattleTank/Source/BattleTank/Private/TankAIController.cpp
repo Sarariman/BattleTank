@@ -2,14 +2,37 @@
 
 #include "TankAIController.h"
 #include "TankAimingComponent.h"
+#include "Tank.h" // So we can implement OnDeath
 
 //Depends on MovementComponent via pathfinding system
 
 void ATankAIController::BeginPlay()
 {
 	Super::BeginPlay();
+}
 
-	/// Find Tank possessed by player
+void ATankAIController::SetPawn(APawn* InPawn)
+{
+	Super::SetPawn(InPawn);
+
+	if (InPawn)
+	{
+		auto PossessedTank = Cast<ATank>(InPawn);
+		if (!ensure(PossessedTank)) { return; }
+
+		//Subscribe our local method to the Tank's death event
+		PossessedTank->OnDeath.AddUniqueDynamic(this, &ATankAIController::OnPossessedTankDeath);
+
+	}
+
+}
+
+void ATankAIController::OnPossessedTankDeath()
+{
+	//UE_LOG(LogTemp, Warning, TEXT("Receive!"))
+	if (!ensure(GetPawn())) { return; }
+
+	GetPawn()->DetachFromControllerPendingDestroy();
 
 }
 

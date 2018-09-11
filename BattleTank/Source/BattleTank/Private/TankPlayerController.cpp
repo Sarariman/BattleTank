@@ -2,6 +2,7 @@
 
 #include "TankPlayerController.h"
 #include "TankAimingComponent.h"
+#include "Tank.h"
 
 // Called when the game starts or when spawned
 void ATankPlayerController::BeginPlay()
@@ -11,6 +12,30 @@ void ATankPlayerController::BeginPlay()
 	
 	if (!ensure(AimingComponent)) { return; }
 	FoundAimingComponent(AimingComponent);
+}
+
+
+void ATankPlayerController::SetPawn(APawn* InPawn)
+{
+	Super::SetPawn(InPawn);
+
+	if (InPawn)
+	{
+		auto PlayerTank = Cast<ATank>(InPawn);
+		if (!ensure(PlayerTank)) { return; }
+
+		//Subscribe our local method to the Tank's death event
+		PlayerTank->OnDeath.AddUniqueDynamic(this, &ATankPlayerController::OnPlayerTankDeath);
+
+	}
+
+}
+
+void ATankPlayerController::OnPlayerTankDeath()
+{
+	//UE_LOG(LogTemp, Warning, TEXT("Receive!"))
+	if (!ensure(GetPawn())) { return; }
+	StartSpectatingOnly();
 }
 
 
